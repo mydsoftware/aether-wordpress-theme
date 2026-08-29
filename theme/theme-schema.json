@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "Aether Theme Schema",
+  "version": "1.0.0",
+  "description": "Machine-readable schema for Aether Theme - AI-Ready Architecture",
+  "textDomain": "aether",
+  "components": {
+    "header": {
+      "type": "object",
+      "description": "Header configuration",
+      "properties": {
+        "preset": { "type": "string", "enum": ["default", "centered", "minimal", "transparent"], "default": "default" },
+        "sticky": { "type": "boolean", "default": true },
+        "transparent": { "type": "boolean", "default": false },
+        "topbar": { "type": "boolean", "default": true },
+        "search": { "type": "boolean", "default": true },
+        "account": { "type": "boolean", "default": true },
+        "cart": { "type": "boolean", "default": true },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "default": "" },
+            "url": { "type": "string", "format": "uri", "default": "" }
+          }
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "properties": {
+        "columns": { "type": "integer", "minimum": 1, "maximum": 4, "default": 4 },
+        "copyright": { "type": "string", "default": "" },
+        "paymentIcons": { "type": "boolean", "default": true }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["boxed", "full-width", "sidebar-left", "sidebar-right", "no-sidebar"], "default": "boxed" },
+        "containerWidth": { "type": "string", "enum": ["sm", "md", "lg", "xl", "2xl", "full"], "default": "xl" }
+      }
+    },
+    "colors": {
+      "type": "object",
+      "properties": {
+        "primary": { "type": "string", "format": "color", "default": "#0f172a" },
+        "secondary": { "type": "string", "format": "color", "default": "#6366f1" },
+        "accent": { "type": "string", "format": "color", "default": "#f59e0b" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "properties": {
+        "fontFamily": { "type": "string", "enum": ["vazirmatn", "inter", "system"], "default": "vazirmatn" },
+        "baseSize": { "type": "integer", "minimum": 14, "maximum": 20, "default": 16 }
+      }
+    },
+    "woocommerce": {
+      "type": "object",
+      "properties": {
+        "shopLayout": { "type": "string", "enum": ["sidebar-right", "sidebar-left", "full-width"], "default": "sidebar-right" },
+        "shopColumns": { "type": "integer", "minimum": 2, "maximum": 5, "default": 3 },
+        "productsPerPage": { "type": "integer", "minimum": 1, "maximum": 100, "default": 12 },
+        "productLayout": { "type": "string", "enum": ["default", "gallery-left", "gallery-right", "stacked"], "default": "default" }
+      }
+    },
+    "blog": {
+      "type": "object",
+      "properties": {
+        "layout": { "type": "string", "enum": ["grid", "list", "masonry", "magazine", "sidebar-right", "sidebar-left", "full-width"], "default": "sidebar-right" }
+      }
+    },
+    "darkMode": {
+      "type": "object",
+      "properties": {
+        "mode": { "type": "string", "enum": ["auto", "light", "dark"], "default": "auto" }
+      }
+    }
+  },
+  "api": {
+    "namespace": "aether/v1",
+    "endpoints": {
+      "/config": { "methods": ["GET"], "permission": "public" },
+      "/settings": { "methods": ["GET", "POST"], "permission": "manage_options" },
+      "/layouts": { "methods": ["GET"], "permission": "public" },
+      "/components": { "methods": ["GET"], "permission": "public" },
+      "/header": { "methods": ["GET", "POST"], "permission": "manage_options" },
+      "/footer": { "methods": ["GET", "POST"], "permission": "manage_options" },
+      "/woocommerce": { "methods": ["GET"], "permission": "public" }
+    }
+  },
+  "permissions": {
+    "read": ["public"],
+    "write": ["manage_options"],
+    "ai_agent": ["manage_options"]
+  },
+  "versioning": {
+    "supported": true,
+    "snapshot_option": "aether_config_snapshots",
+    "max_snapshots": 20
+  }
+}
