@@ -13,9 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Walker برای منوی مگا
- */
 class Mega_Menu_Walker extends \Walker_Nav_Menu {
 
 	public function start_lvl( &$output, $depth = 0, $args = null ): void {
@@ -59,7 +56,7 @@ class Mega_Menu_Walker extends \Walker_Nav_Menu {
 		foreach ( $atts as $attr => $value ) {
 			if ( ! empty( $value ) ) {
 				$value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-				$attributes .= ' ' . $attr . '="' . $value . '";
+				$attributes .= ' ' . $attr . '="' . $value . '"';
 			}
 		}
 
