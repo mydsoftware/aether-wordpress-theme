@@ -1,0 +1,17 @@
+{
+  "id": "general",
+  "name": "فروشگاه عمومی",
+  "category": "ecommerce",
+  "description": "فروشگاه کامل با ۱۰ محصول واقعی، ۵ دسته‌بندی، صفحات Elementor و تنظیمات مدرن",
+  "version": "1.0.0",
+  "requires": { "woocommerce": true, "elementor": "recommended" },
+  "pages": ["home", "about", "contact", "faq", "blog", "shop", "cart", "checkout", "myaccount"],
+  "products": 10,
+  "categories": 5,
+  "format": {
+    "pages": "elementor_json",
+    "products": "woocommerce_api",
+    "settings": "aether_options_json",
+    "compatible": ["elementor", "elementor_kit", "wordpress"]
+  }
+}

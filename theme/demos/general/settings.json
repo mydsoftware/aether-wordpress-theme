@@ -1,0 +1,17 @@
+{
+  "layout_type": "full-width",
+  "dark_mode": "auto",
+  "header_sticky": true,
+  "header_topbar": true,
+  "header_search": true,
+  "header_account": true,
+  "header_cart": true,
+  "header_cta_text": "فروشگاه",
+  "color_primary": "#0f172a",
+  "color_secondary": "#6366f1",
+  "color_accent": "#f59e0b",
+  "shop_columns": 4,
+  "products_per_page": 12,
+  "footer_columns": 4,
+  "lazy_load": true
+}
